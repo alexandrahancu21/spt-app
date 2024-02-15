@@ -1,0 +1,36 @@
+1. Setati portul serverului la 8000.
+
+2. Adaugati o pagina HTML pentru eroarea 404. //in src main resources public error si adaugam la error 404
+
+3. Pachet entity: creati clasa Book urmatoarele coloanele tabelului definit in schema.sql
+(+getteri/setteri) -> initial value = 5
+//BIGINT -> INTEGER
+//VARCHAR -> STRING
+//DOUBLE PRECISION -> Double
+//TIMESTAMP -> DATE
+//LONG -> Integer
+4.	Pachet repository – interfata BookRepository
+
+5.	Pachet service – clasa BookService – metode getBook, getAllBooks, saveBook, deleteBook
+
+6.	Pachet controller – clasa BookController – metode aferente celor din service (URI: /books)
+
+    Metode HTTP GET, POST, DELETE
+
+-	Advanced REST Client: testare GET, POST, DELETE
+
+Exemplu Body:
+{
+  "title": "Title4",
+  "isbn": "491-CCS",
+  "releaseDate": "2023-01-08",
+  "authorId": 2,
+  "price": 12.99
+}
+
+7.  Adaugati in BookRepository o metoda custom care sa gaseasca toate cartile ce au un autor primit ca
+parametru ordonate dupa data lansarii (exemplu in AuthorRepository - findByCountryOrderByBirthDateAsc)
+- in BookService si BookController metode similare care sa o apeleze cu URL "/findByAuthor"
+(cu @PathParam similar cu cea din AuthorService si AuthorController : findByCountry)
+
+exemplu URL: http://localhost:8000/books/findByAuthor?authorId=1
